@@ -133,7 +133,7 @@ class _SongPageState extends State<SongPage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         //start time
-                        Text("00:00:00"),
+                        Text(value.currentDuration.toString()),
 
                         //shuffle icon
                         // Icon(Icons.shuffle),
@@ -142,11 +142,12 @@ class _SongPageState extends State<SongPage> {
                         // Icon(Icons.repeat),
 
                         //end time
-                        Text("00:00:00"),
+                        Text(value.totalDuration.toString()),
                       ],
                     ),
                   ),
 
+                  //S L I D E R
                   Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 25, vertical: 15),
@@ -158,9 +159,15 @@ class _SongPageState extends State<SongPage> {
                         activeColor:
                             Theme.of(context).colorScheme.inversePrimary,
                         min: 0,
-                        max: 100,
-                        value: 50,
-                        onChanged: (value) {},
+                        max: value.totalDuration.inSeconds.toDouble(),
+                        value: value.currentDuration.inSeconds.toDouble(),
+                        onChanged: (double double) {
+                          //during when the user is dragging the slider
+                        },
+                        onChangeEnd: (double double) {
+                          //sliding is finished, got the position where its left
+                          value.seek(Duration(seconds: double.toInt()));
+                        },
                       ),
                     ),
                   ),
@@ -187,28 +194,39 @@ class _SongPageState extends State<SongPage> {
                     child: Row(
                       children: [
                         //skip previous
-                        Expanded(
-                          child: NeuBox(
-                            child: Icon(Icons.skip_previous),
+                        GestureDetector(
+                          onTap: value.playPreviousSong,
+                          child: Expanded(
+                            child: NeuBox(
+                              child: Icon(Icons.skip_previous),
+                            ),
                           ),
                         ),
 
                         SizedBox(width: 20),
 
                         //play/pause
-                        Expanded(
-                          flex: 2,
-                          child: NeuBox(
-                            child: Icon(Icons.play_arrow),
+                        GestureDetector(
+                          onTap: value.pauseORResume,
+                          child: Expanded(
+                            flex: 2,
+                            child: NeuBox(
+                              child: Icon(value.isPlaying
+                                  ? Icons.pause
+                                  : Icons.play_arrow),
+                            ),
                           ),
                         ),
 
                         SizedBox(width: 20),
 
                         //next
-                        Expanded(
-                          child: NeuBox(
-                            child: Icon(Icons.skip_next),
+                        GestureDetector(
+                          onTap: value.playNextSong,
+                          child: Expanded(
+                            child: NeuBox(
+                              child: Icon(Icons.skip_next),
+                            ),
                           ),
                         ),
                       ],
