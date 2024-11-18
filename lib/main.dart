@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:music_player/models/playlist_provider.dart';
+import 'package:music_player/pages/animation_page.dart';
 import 'package:music_player/pages/home_page.dart';
 
 import 'package:music_player/themes/theme_provider.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: AnimationPage(),
       theme: Provider.of<ThemeProvider>(context).themeData,
     );
   }

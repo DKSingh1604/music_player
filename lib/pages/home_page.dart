@@ -45,7 +45,8 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       // backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
-        title: Text(" P L A Y L I S T"),
+        title: Text("YOUR SONGS"),
+        centerTitle: true,
         backgroundColor: Theme.of(context).colorScheme.secondary,
       ),
       drawer: MyDrawer(),
@@ -62,13 +63,23 @@ class _HomePageState extends State<HomePage> {
               final Song song = playlist[index];
 
               //return list tile
-              return ListTile(
-                title: Text(song.songName),
-                subtitle: Text(song.artistName),
-                leading: CircleAvatar(
-                  backgroundImage: AssetImage(song.albumArtImagePath),
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.secondary,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: ListTile(
+                    tileColor: Theme.of(context).colorScheme.surface,
+                    title: Text(song.songName),
+                    subtitle: Text(song.artistName),
+                    leading: CircleAvatar(
+                      backgroundImage: AssetImage(song.albumArtImagePath),
+                    ),
+                    onTap: () => goToSong(index),
+                  ),
                 ),
-                onTap: () => goToSong(index),
               );
             },
           );

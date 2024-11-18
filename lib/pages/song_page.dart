@@ -6,14 +6,18 @@ import 'package:music_player/components/neu_box.dart';
 import 'package:music_player/models/playlist_provider.dart';
 import 'package:provider/provider.dart';
 
-class SongPage extends StatefulWidget {
-  const SongPage({super.key});
+class SongPage extends StatelessWidget {
+  SongPage({super.key});
 
-  @override
-  State<SongPage> createState() => _SongPageState();
-}
+  //convert duration to minutes:seconds
+  String formatTime(Duration duration) {
+    String twoDigitSeconds =
+        duration.inSeconds.remainder(60).toString().padLeft(2, '0');
+    String formattedTime = "${duration.inMinutes}:$twoDigitSeconds";
 
-class _SongPageState extends State<SongPage> {
+    return formattedTime;
+  }
+
   //State variable to track if the icon is selected
   bool isFavorite = false;
 
@@ -45,6 +49,8 @@ class _SongPageState extends State<SongPage> {
                         IconButton(
                           onPressed: () {
                             Navigator.pop(context);
+                            //pause the song if playing
+                            value.pause();
                           },
                           icon: Icon(Icons.arrow_back_ios),
                         ),
@@ -125,7 +131,7 @@ class _SongPageState extends State<SongPage> {
                     ),
                   ),
 
-                  //song duration progress - seek
+                  //song duration progress
                   Padding(
                     padding:
                         const EdgeInsets.only(right: 30.0, left: 30, top: 10),
@@ -133,7 +139,7 @@ class _SongPageState extends State<SongPage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         //start time
-                        Text(value.currentDuration.toString()),
+                        Text(formatTime(value.currentDuration)),
 
                         //shuffle icon
                         // Icon(Icons.shuffle),
@@ -142,7 +148,7 @@ class _SongPageState extends State<SongPage> {
                         // Icon(Icons.repeat),
 
                         //end time
-                        Text(value.totalDuration.toString()),
+                        Text(formatTime(value.totalDuration)),
                       ],
                     ),
                   ),

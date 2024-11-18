@@ -30,7 +30,7 @@ class SettingsPage extends StatelessWidget {
               children: [
                 //dark mode
                 Text(
-                  "Dark Mode",
+                  "Kala Mode",
                   style: TextStyle(fontSize: 15),
                 ),
 

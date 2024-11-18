@@ -7,23 +7,23 @@ class PlaylistProvider extends ChangeNotifier {
   final List<Song> _playlist = [
     //song 1
     Song(
-      songName: "Ek Zindagi",
-      artistName: "Tanishkaa Sanghvi",
+      songName: "Nachan Nu Jee Karda",
+      artistName: "Romy",
       albumArtImagePath: "assets/images/song1.webp",
       audioPath: "audio/audio.mp3",
     ),
 
     //song 2
     Song(
-      songName: "Nachan Nu Jee Karda",
-      artistName: "Romy",
+      songName: "Ek Zindagi",
+      artistName: "Tanishkaa Sanghvi",
       albumArtImagePath: "assets/images/song2.avif",
       audioPath: "audio/audio2.mp3",
     ),
 
     //song 3
     Song(
-      songName: "Tu Hasil Karunga",
+      songName: "Tujhe Hasil Karunga",
       artistName: "Stebin Ben",
       albumArtImagePath: "assets/images/song3.webp",
       audioPath: "audio/audio3.mp3",

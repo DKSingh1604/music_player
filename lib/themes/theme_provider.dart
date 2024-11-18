@@ -4,7 +4,7 @@ import 'package:music_player/themes/light_mode.dart';
 
 class ThemeProvider extends ChangeNotifier {
   //intially, lightMode
-  ThemeData _themeData = lightMode;
+  ThemeData _themeData = darkMode;
 
   //get theme
   ThemeData get themeData => _themeData;
