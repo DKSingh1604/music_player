@@ -114,7 +114,7 @@ class _SongPageState extends State<SongPage> {
                               //heart animation
                               GestureDetector(
                                 child: Lottie.asset(
-                                    'lib/assets/animations/like.json',
+                                    'assets/animations/like.json',
                                     width: 70,
                                     height: 70),
                               ),

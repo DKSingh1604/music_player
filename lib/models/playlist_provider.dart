@@ -9,7 +9,7 @@ class PlaylistProvider extends ChangeNotifier {
     Song(
       songName: "Ek Zindagi",
       artistName: "Tanishkaa Sanghvi",
-      albumArtImagePath: "lib/assets/images/song1.webp",
+      albumArtImagePath: "assets/images/song1.webp",
       audioPath: "audio/audio.mp3",
     ),
 
@@ -17,7 +17,7 @@ class PlaylistProvider extends ChangeNotifier {
     Song(
       songName: "Nachan Nu Jee Karda",
       artistName: "Romy",
-      albumArtImagePath: "lib/assets/images/song2.avif",
+      albumArtImagePath: "assets/images/song2.avif",
       audioPath: "audio/audio2.mp3",
     ),
 
@@ -25,7 +25,7 @@ class PlaylistProvider extends ChangeNotifier {
     Song(
       songName: "Tu Hasil Karunga",
       artistName: "Stebin Ben",
-      albumArtImagePath: "lib/assets/images/song3.webp",
+      albumArtImagePath: "assets/images/song3.webp",
       audioPath: "audio/audio3.mp3",
     ),
   ];
