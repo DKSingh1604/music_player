@@ -74,7 +74,7 @@ class PlaylistProvider extends ChangeNotifier {
   }
 
   //pause or resume
-  void pauseORResume() async {
+  void pauseOrResume() async {
     if (_isPlaying) {
       pause();
     } else {

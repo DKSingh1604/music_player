@@ -194,9 +194,9 @@ class _SongPageState extends State<SongPage> {
                     child: Row(
                       children: [
                         //skip previous
-                        GestureDetector(
-                          onTap: value.playPreviousSong,
-                          child: Expanded(
+                        Expanded(
+                          child: GestureDetector(
+                            onTap: value.playPreviousSong,
                             child: NeuBox(
                               child: Icon(Icons.skip_previous),
                             ),
@@ -206,10 +206,10 @@ class _SongPageState extends State<SongPage> {
                         SizedBox(width: 20),
 
                         //play/pause
-                        GestureDetector(
-                          onTap: value.pauseORResume,
-                          child: Expanded(
-                            flex: 2,
+                        Expanded(
+                          flex: 2,
+                          child: GestureDetector(
+                            onTap: value.pauseOrResume,
                             child: NeuBox(
                               child: Icon(value.isPlaying
                                   ? Icons.pause
@@ -221,9 +221,9 @@ class _SongPageState extends State<SongPage> {
                         SizedBox(width: 20),
 
                         //next
-                        GestureDetector(
-                          onTap: value.playNextSong,
-                          child: Expanded(
+                        Expanded(
+                          child: GestureDetector(
+                            onTap: value.playNextSong,
                             child: NeuBox(
                               child: Icon(Icons.skip_next),
                             ),
@@ -231,7 +231,7 @@ class _SongPageState extends State<SongPage> {
                         ),
                       ],
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
