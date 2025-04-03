@@ -1,6 +1,7 @@
 {
     "editor.tokenColorCustomizations": {
     "comments": "#00FF00" // Replace with your desired color
-}
+},
+"cmake.sourceDirectory": "C:/flutter_projects/music_player/linux"
     
 }
